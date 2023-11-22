@@ -39,14 +39,17 @@ def shrinkingSquare(length,number_of_square):
     tosbik = turtle.Turtle()
     a = True
     step = 0
+    myLength = length
     while a == True:
+
         tosbik.forward(length)
         tosbik.left(90)
         step = step + 1
         if step % 4 == 0:
-            length = length - length/number_of_square
+            length = length - myLength/number_of_square
         if step == 4*number_of_square :
             a = False
+
 
     turtle.done()
 
@@ -55,7 +58,7 @@ def shrinkingSquare(length,number_of_square):
 
 
 createScreen("green","Tosbik")
-shrinkingSquare(300,10)
+shrinkingSquare(300,8)
 
 
 
