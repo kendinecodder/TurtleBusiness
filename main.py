@@ -8,14 +8,14 @@ def createScreen(color,title):
 def drawSquare(lenght):
 
 
-    turtle1 = turtle.Turtle() # nasıl aynı anda çalıstırıcam ?
+    tosbik = turtle.Turtle() # nasıl aynı anda çalıstırıcam ?
     turtle2 = turtle.Turtle()
 
-    turtle1.forward(lenght/2)
-    turtle1.left(90)
-    turtle1.forward(lenght)
-    turtle1.left(90)
-    turtle1.forward(lenght)
+    tosbik.forward(lenght/2)
+    tosbik.left(90)
+    tosbik.forward(lenght)
+    tosbik.left(90)
+    tosbik.forward(lenght)
 
     turtle2.left(180)
     turtle2.forward(lenght / 2)
@@ -35,11 +35,27 @@ def drawStar(length):
       tospik.forward(length)
    turtle.done()
 
+def shrinkingSquare(length,number_of_square):
+    tosbik = turtle.Turtle()
+    a = True
+    step = 0
+    while a == True:
+        tosbik.forward(length)
+        tosbik.left(90)
+        step = step + 1
+        if step % 4 == 0:
+            length = length - length/number_of_square
+        if step == 4*number_of_square :
+            a = False
+
+    turtle.done()
 
 
 
-createScreen("green","bekoturtle")
-drawStar(50)
+
+
+createScreen("green","Tosbik")
+shrinkingSquare(300,10)
 
 
 
