@@ -26,13 +26,20 @@ def drawSquare(lenght):
 
     turtle.done()
 
-
+def drawStar(length):
+   tospik = turtle.Turtle()
+   for a in range(5):
+      tospik.right(45)
+      tospik.forward(length)
+      tospik.left(120)
+      tospik.forward(length)
+   turtle.done()
 
 
 
 
 createScreen("green","bekoturtle")
-
+drawStar(50)
 
 
 
