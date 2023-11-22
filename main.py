@@ -1,5 +1,6 @@
 import turtle
 
+
 def createScreen(color,title):
    ekran = turtle.Screen()
    ekran.title(title)
@@ -53,12 +54,20 @@ def shrinkingSquare(length,number_of_square):
 
     turtle.done()
 
+def djTosbik(circleValue):
+    colorList = ["Violet","Red","Indigo","Blue","Green","Yellow","Orange"]
+    tosbik = turtle.Turtle()
+    tosbik.shape("turtle")
+    for i in range(circleValue):
+        tosbik.color(colorList[i % 6])
+        tosbik.circle(i*10)
+        tosbik.circle(-i*10)
+        tosbik.right(i*1.7)
 
 
 
-
-createScreen("green","Tosbik")
-shrinkingSquare(300,8)
+createScreen("black","Tosbik")
+djTosbik(30)
 
 
 
