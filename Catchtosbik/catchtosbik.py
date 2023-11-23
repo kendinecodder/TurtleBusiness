@@ -1,6 +1,15 @@
 import turtle
 from random import randint
 
+def turtlegone():
+    global key
+    global countdown
+    if not countdown == 0:
+        tosbikmove()
+        turtle.ontimer(turtlegone, 340)
+        key = True
+
+
 def testfunc(x,y):
     print(x,y)
 
@@ -16,10 +25,9 @@ def timer():
     if countdown > 0:
         countdown -= 1
         tosbiktime.clear()
-        tosbiktime.write(countdown,font=myfont)
-        tosbikmove()
-        key = True
+        tosbiktime.write(countdown,font=myfont, align="center")
         turtle.ontimer(timer,1000)
+
 
     else:
         tosbikdynamic.hideturtle()
@@ -45,7 +53,8 @@ def myscore(x,y):
 def tosbikmove():
     global tosbikdynamic
     global key
-    if key == True:
+    global countdown
+    if key == True and not countdown == 0:
         tosbikdynamic.hideturtle()
         tosbikdynamic.goto(float(randint(-50,100)), float(randint(-50,100)))
         tosbikdynamic.showturtle()
@@ -76,12 +85,13 @@ tosbikdynamic.color("green")
 tosbikdynamic.shapesize(3,3)
 tosbiktime.color("red")
 tosbikscore.color("red")
-countdown = int(turtle.numinput("", "sayıyı gir", ))
+countdown = int(turtle.numinput("", "geri sayım kaçtan başlasın?"))
 
 tosbiktime.goto(-56, 298)
 tosbikscore.goto(-58, 198)
 
 timer()
+turtlegone()
 
 tosbikdynamic.onclick(myscore)
 
